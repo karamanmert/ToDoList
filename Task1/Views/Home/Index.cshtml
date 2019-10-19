@@ -1,0 +1,31 @@
+﻿@model List<Task1.Models.item>
+
+@{
+    /**/
+
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-bordered" >
+    <tr>
+        
+        <td>Not</td>
+        <td>Tarih</td>
+        <td>Güncelle</td>
+        <td>Sil</td>
+    </tr>
+    @foreach(var i in Model)
+    {
+        <tr>
+         
+            <td>@i.not</td>
+            <td id="trh">@i.tarih</td>
+            <td>@Html.ActionLink("Güncelle","Guncelle",new { id=i.id},new {@class="btn btn-success"})</td>
+            <td>@Html.ActionLink("Sil","Sil",new { id=i.id},new {@class="btn btn-warning"})</td>
+
+        </tr>
+    }
+</table>
+
+@Html.ActionLink("Yeni", "Yeni", null, new { @class = "btn btn-success" })
